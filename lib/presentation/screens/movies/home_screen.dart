@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: _HomeView(),
       ),
+      bottomNavigationBar: CustomBottonNavigationbar(),
     );
   }
 }
@@ -44,12 +45,20 @@ class _HomeViewState extends ConsumerState<_HomeView> {
 
     final nowPlayingMovies = ref.watch( nowPlayingMoviesProvider );
 
+    final slideShowMovies = ref.watch( moviesSlideShowProvider );
+
     return Column(
       children: [
 
         const CustomAppbar(),
 
-        MoviesSlideshow(movies: nowPlayingMovies)
+        MoviesSlideshow( movies: slideShowMovies ),
+
+        MovieHorizontalListview(
+          movies: nowPlayingMovies,
+          title: 'En cines',
+          subTitle: 'Lunes 20',
+        )
         
       ],
     );
