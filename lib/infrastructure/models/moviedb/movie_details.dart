@@ -34,7 +34,7 @@ class MovieDetails {
     final List<Genre> genres;
     final String homepage;
     final int id;
-    final String imdbId;
+    final String? imdbId;
     final String originalLanguage;
     final String originalTitle;
     final String overview;
@@ -120,8 +120,8 @@ class BelongsToCollection {
 
     final int id;
     final String name;
-    final String posterPath;
-    final String backdropPath;
+    final String? posterPath;
+    final String? backdropPath;
 
     factory BelongsToCollection.fromJson(Map<String, dynamic> json) => BelongsToCollection(
         id: json["id"],
