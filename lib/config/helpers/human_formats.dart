@@ -16,4 +16,12 @@ class HumanFormats {
 
   }
 
+  static String diaMes ( DateTime date ) {
+
+    final fechaHoy = DateFormat.MMMMEEEEd().format(date);
+
+    return fechaHoy;
+
+  }
+
 }

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
+
 import 'package:cinemapedia/presentation/providers/providers.dart';
+import 'package:cinemapedia/config/helpers/human_formats.dart';
 import 'package:cinemapedia/presentation/widgets/widgets.dart';
 
 
@@ -36,6 +40,8 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     
     super.initState();
 
+    initializeDateFormatting();
+
     ref.read( nowPlayingMoviesProvider.notifier ).loadNextPage();
     ref.read( popularMoviesProvider.notifier ).loadNextPage();
     ref.read( topRatedMoviesProvider.notifier ).loadNextPage();
@@ -49,6 +55,8 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     final initialLoading = ref.watch(initialLoadingProvider);
 
     if( initialLoading ) return const FullScreenLoader();
+
+    final hoy = DateFormat.MMMMEEEEd('es-ES').format(DateTime.now()) ;
 
     final slideShowMovies = ref.watch( moviesSlideShowProvider );
     final nowPlayingMovies = ref.watch( nowPlayingMoviesProvider );
@@ -78,7 +86,7 @@ class _HomeViewState extends ConsumerState<_HomeView> {
                 MovieHorizontalListview(
                   movies: nowPlayingMovies,
                   title: 'En cines',
-                  subTitle: 'Lunes 20',
+                  subTitle: hoy,
                   loadNextPage: () => ref.read(nowPlayingMoviesProvider.notifier).loadNextPage(),
                 ),
 

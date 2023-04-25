@@ -187,6 +187,7 @@ class _Title extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final titleStyle = Theme.of(context).textTheme.titleLarge;
+    final colors = Theme.of(context).colorScheme;
 
     return Container(
       padding: const EdgeInsets.only(top: 10),
@@ -205,7 +206,7 @@ class _Title extends StatelessWidget {
                 visualDensity: VisualDensity.compact
               ),
               onPressed: (){}, 
-              child: Text( subTitle! )
+              child: Text( subTitle!, style: TextStyle(color: colors.primary))
             )
 
         ]
