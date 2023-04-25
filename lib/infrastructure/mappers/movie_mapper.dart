@@ -20,9 +20,9 @@ class MovieMapper {
       popularity: moviedb.popularity,
       posterPath: (moviedb.posterPath != '')
         ? 'https://image.tmdb.org/t/p/w500${ moviedb.posterPath }'
-        : 'no-poster',
+        : 'https://d3aa3603f5de3f81cb9fdaa5c591a84d5723e3cb.hosting4cdn.com/wp-content/uploads/2020/11/404-poster-not-found-CG17701-1.png',
         // : 'https://linnea.com.ar/wp-content/uploads/2018/09/404PosterNotFound-400x559.jpg',
-      releaseDate: moviedb.releaseDate,
+      releaseDate: moviedb.releaseDate != null ? moviedb.releaseDate! : DateTime.now(),
       title: moviedb.title,
       video: moviedb.video,
       voteAverage: moviedb.voteAverage,
@@ -42,7 +42,7 @@ class MovieMapper {
       popularity: moviedb.popularity,
       posterPath: (moviedb.posterPath != '')
         ? 'https://image.tmdb.org/t/p/w500${ moviedb.posterPath }'
-        : 'https://linnea.com.ar/wp-content/uploads/2018/09/404PosterNotFound-400x559.jpg',
+        : 'https://d3aa3603f5de3f81cb9fdaa5c591a84d5723e3cb.hosting4cdn.com/wp-content/uploads/2020/11/404-poster-not-found-CG17701-1.png',
       releaseDate: moviedb.releaseDate,
       title: moviedb.title,
       video: moviedb.video,
