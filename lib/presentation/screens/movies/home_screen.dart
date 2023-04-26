@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'package:cinemapedia/presentation/providers/providers.dart';
-import 'package:cinemapedia/config/helpers/human_formats.dart';
 import 'package:cinemapedia/presentation/widgets/widgets.dart';
 
 
